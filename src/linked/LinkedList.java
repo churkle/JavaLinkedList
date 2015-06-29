@@ -54,7 +54,7 @@ public class LinkedList
 
         if(start == null)
         {
-            start = end = tmp;
+            start = end = current = tmp;
         }
         else
         {
@@ -81,12 +81,12 @@ public class LinkedList
     }
 
     /**
-     * Returns the next item in the Linked List
+     * Returns the next item in the Linked List and moves forward one ListNode
      * @return  The next item in the Linked List
      */
     public Object getNext()
     {
-        if (current != null)
+        if (current != null && current.next != null)
         {
             current = current.next;
             return current.item;
@@ -98,7 +98,7 @@ public class LinkedList
     }
 
     /**
-     * Returns the previous item in the Linked List
+     * Returns the previous item in the Linked List and moves backward one ListNode
      * @return  The previous item in the Linked List
      */
     public Object getPrev()
@@ -106,6 +106,22 @@ public class LinkedList
         if (current != null && current.prev != null)
         {
             current = current.prev;
+            return current.item;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    /**
+     * Returns the current item in the Linked List
+     * @return  The current item in the Linked List
+     */
+    public Object getCur()
+    {
+        if(current != null)
+        {
             return current.item;
         }
         else
