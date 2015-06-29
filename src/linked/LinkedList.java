@@ -65,6 +65,34 @@ public class LinkedList
     }
 
     /**
+     * Adds item to the Linked List adjacent to given item if such item exists
+     * @param item  Item to be added to the Linked List
+     * @param prevItem  Item in the Linked List to add new item next to
+     */
+    public void addItem(Object item, Object prevItem)
+    {
+        if (start != null)
+        {
+            ListNode curPos = start;
+
+            while (curPos != null)
+            {
+                if(curPos.item.equals(prevItem))
+                {
+                    ListNode tmp = curPos.next;
+                    curPos.next = new ListNode(item);
+                    curPos.next.next = tmp;
+                    break;
+                }
+                else
+                {
+                    curPos = curPos.next;
+                }
+            }
+        }
+    }
+
+    /**
      * Returns first item in the Linked List
      * @return  First item in the Linked List
      */

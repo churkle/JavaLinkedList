@@ -23,6 +23,9 @@ public class LinkedListTest
 
         myList.addItem(3);
         assertEquals(3, myList.getNext());
+
+        myList.addItem("After", 3);
+        assertEquals("After", myList.getNext());
     }
 
     @Test
